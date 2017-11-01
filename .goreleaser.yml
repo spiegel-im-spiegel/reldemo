@@ -52,4 +52,7 @@ archive:
     - README.md
     - LICENSE
 release:
+  github:
+    owner: spiegel-im-spiegel
+    name: spiegel-im-spiegel
   draft: false
