@@ -1,10 +1,11 @@
 build:
-  main: main.go
+  main: cli/reldemo/main.go
   binary: reldemo
   ldflags: -s -w -X facade.Version={{.Version}}
   env:
     - CGO_ENABLED=0
   goos:
+    - darwin
     - linux
     - windows
     - freebsd
