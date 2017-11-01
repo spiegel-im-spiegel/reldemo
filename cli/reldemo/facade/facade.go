@@ -13,7 +13,7 @@ const (
 	//Name is applicatin name
 	Name = "godump"
 	//Version is version for applicatin
-	Version = "v0.1.1"
+	Version = "v0.0.x"
 )
 
 //ExitCode is OS exit code enumeration class
@@ -44,13 +44,18 @@ func (c ExitCode) String() string {
 }
 
 var (
-	cui = gocli.NewUI()
+	cui         = gocli.NewUI()
+	versionFlag = false
 )
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use: Name + " [flags] [binary file]",
 	RunE: func(cmd *cobra.Command, args []string) error {
+		if versionFlag {
+			cui.Outputln(Name, Version)
+			return nil
+		}
 		name, err := cmd.Flags().GetString("name")
 		if err != nil {
 			return err
@@ -101,5 +106,6 @@ func Execute(ui *gocli.UI) (exit ExitCode) {
 }
 
 func init() {
+	rootCmd.Flags().BoolVarP(&versionFlag, "vaersion", "v", false, "output version")
 	rootCmd.Flags().StringP("name", "n", "dumpList", "value name")
 }

@@ -5,18 +5,30 @@ build:
   env:
     - CGO_ENABLED=0
   goos:
+    - darwin
+    - linux
     - windows
+    - freebsd
+    - netbsd
+    - openbsd
+    - dragonfly
   goarch:
     - amd64
     - 386
+    - arm
+    - arm64
+  ignore:
+    - goos: openbsd
+      goarch: arm
+      goarm: 6
 
 fpm:
   formats:
       - deb
-  vendor: "gohugo.io"
-  homepage: "https://gohugo.io/"
-  maintainer: "Bjørn Erik Pedersen <bjorn.erik.pedersen@gmail.com>"
-  description: "A Fast and Flexible Static Site Generator built with love in GoLang."
+  vendor: "Baldanders.info"
+  homepage: "http://www.baldanders.info/"
+  maintainer: "Spiegel <spiegel-im-spiegel@gmail.com>"
+  description: "relrease demo"
   license: "Apache 2.0"
 archive:
   format: tar.gz
@@ -39,3 +51,5 @@ archive:
   files:
     - README.md
     - LICENSE
+release:
+  draft: false
