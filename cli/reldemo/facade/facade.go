@@ -9,11 +9,11 @@ import (
 	"github.com/spiegel-im-spiegel/reldemo"
 )
 
-const (
+var (
 	//Name is applicatin name
 	Name = "godump"
 	//Version is version for applicatin
-	Version = "v0.0.x"
+	Version string
 )
 
 //ExitCode is OS exit code enumeration class

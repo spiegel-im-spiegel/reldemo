@@ -1,7 +1,7 @@
 build:
   main: cli/reldemo/main.go
   binary: reldemo
-  ldflags: -s -w -X facade.Version={{.Version}}
+  ldflags: -s -w -X github.com/spiegel-im-spiegel/reldemo/cli/reldemo/facade.Version={{.Version}}
   env:
     - CGO_ENABLED=0
   goos:
