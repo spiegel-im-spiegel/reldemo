@@ -4,9 +4,8 @@ go:
   - 1.9.2
 
 install:
-  - go get -v github.com/golang/dep
-  - go install -v ./...
+  - go get -u github.com/golang/dep/...
 
 script:
-  - dep ensure -v
+  - $GOPATH/bin/dep ensure -v
   - go test -v ./...
