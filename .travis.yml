@@ -5,6 +5,7 @@ go:
 
 install:
   - go get -v github.com/golang/dep
+  - go install -v ./...
 
 script:
   - dep ensure -v
