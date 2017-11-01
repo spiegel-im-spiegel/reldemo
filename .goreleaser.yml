@@ -51,5 +51,3 @@ archive:
   files:
     - README.md
     - LICENSE.md
-release:
-draft: true
