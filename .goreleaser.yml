@@ -22,14 +22,6 @@ build:
       goarch: arm
       goarm: 6
 
-fpm:
-  formats:
-      - deb
-  vendor: "Baldanders.info"
-  homepage: "http://www.baldanders.info/"
-  maintainer: "Spiegel <spiegel-im-spiegel@gmail.com>"
-  description: "relrease demo"
-  license: "Apache 2.0"
 archive:
   format: tar.gz
   format_overrides:
@@ -51,6 +43,7 @@ archive:
   files:
     - README.md
     - LICENSE
+
 release:
   github:
     owner: spiegel-im-spiegel
