@@ -8,5 +8,9 @@ import (
 )
 
 func main() {
-	os.Exit(facade.Execute(gocli.NewUI(gocli.Reader(os.Stdin), gocli.Writer(os.Stdout), gocli.ErrorWriter(os.Stderr))).Int())
+	os.Exit(facade.Execute(gocli.NewUI(
+		gocli.Reader(os.Stdin),
+		gocli.Writer(os.Stdout),
+		gocli.ErrorWriter(os.Stderr),
+	)).Int())
 }
