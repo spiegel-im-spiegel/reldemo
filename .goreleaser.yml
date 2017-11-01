@@ -21,6 +21,8 @@ build:
     - goos: openbsd
       goarch: arm
       goarm: 6
+    - goos: darwin
+      goarch: 386
 
 fpm:
   formats:
