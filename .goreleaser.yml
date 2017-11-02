@@ -44,7 +44,7 @@ changelog:
   filters:
     exclude:
       - docs
-	  - typo
+      - typo
       - Merge pull request
       - Merge branch
 
