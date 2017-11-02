@@ -3,7 +3,6 @@ release:
   github:
     owner: spiegel-im-spiegel
     name: reldemo
-  name_template: '{{.Tag}}'
 
 builds:
 - goos:
@@ -15,10 +14,9 @@ builds:
   - "386"
   - arm
   - arm64
-  goarm:
-  - "6"
+  goarm: 6
   main: ./cli/reldemo/
-  ldflags: -s -w -X github.com/spiegel-im-spiegel/reldemo/cli/reldemo/facade.Version={{.Version}}
+  ldflags: -s -w -X github.com/spiegel-im-spiegel/reldemo/cli/reldemo/facade.Version={{ .Version }}
   binary: reldemo
 
 archive:
@@ -26,8 +24,7 @@ archive:
   format_overrides:
     - goos: windows
       format: zip
-  name_template: '{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{
-    .Arm }}{{ end }}'
+  name_template: '{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
   replacements:
     amd64: 64bit
     386: 32bit
