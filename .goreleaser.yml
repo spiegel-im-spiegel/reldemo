@@ -9,6 +9,10 @@ builds:
   - linux
   - darwin
   - windows
+  - freebsd
+  - netbsd
+  - openbsd
+  - dragonfly
   goarch:
   - amd64
   - "386"
