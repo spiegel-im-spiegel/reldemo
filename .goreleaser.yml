@@ -1,33 +1,39 @@
-build:
-  main: cli/reldemo/main.go
-  binary: reldemo
-  ldflags: -s -w -X github.com/spiegel-im-spiegel/reldemo/cli/reldemo/facade.Version={{.Version}}
-  env:
-    - CGO_ENABLED=0
-  goos:
-    - darwin
-    - linux
-    - windows
-    - freebsd
-    - netbsd
-    - openbsd
-    - dragonfly
+project_name: reldemo
+release:
+  github:
+    owner: spiegel-im-spiegel
+    name: reldemo
+
+builds:
+- goos:
+  - linux
+  - darwin
+  - windows
+  - freebsd
+  - netbsd
+  - openbsd
+  - dragonfly
   goarch:
-    - amd64
-    - 386
-    - arm
-    - arm64
+  - amd64
+  - "386"
+  - arm
+  - arm64
+  goarm:
+  - "6"
   ignore:
-    - goos: openbsd
-      goarch: arm
-      goarm: 6
+  - goos: openbsd
+    goarch: arm
+    goarm: 6
+  main: ./cli/reldemo/
+  ldflags: -s -w -X github.com/spiegel-im-spiegel/reldemo/cli/reldemo/facade.Version={{ .Version }}
+  binary: reldemo
 
 archive:
   format: tar.gz
   format_overrides:
     - goos: windows
       format: zip
-  name_template: "{{.Binary}}_{{.Version}}_{{.Os}}-{{.Arch}}"
+  name_template: '{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
   replacements:
     amd64: 64bit
     386: 32bit
@@ -36,15 +42,12 @@ archive:
     darwin: macOS
     linux: Linux
     windows: Windows
-    openbsd: OpenBSD
-    netbsd: NetBSD
-    freebsd: FreeBSD
-    dragonfly: DragonFlyBSD
   files:
-    - README.md
-    - LICENSE
+  - LICENSE*
+  - README*
 
-release:
-  github:
-    owner: spiegel-im-spiegel
-    name: reldemo
+snapshot:
+  name_template: SNAPSHOT-{{ .Commit }}
+
+checksum:
+  name_template: '{{ .ProjectName }}_{{ .Version }}_checksums.txt'

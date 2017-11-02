@@ -11,7 +11,7 @@ import (
 
 var (
 	//Name is applicatin name
-	Name = "godump"
+	Name = "reldemo"
 	//Version is version for applicatin
 	Version string
 )
