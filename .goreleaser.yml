@@ -10,9 +10,6 @@ builds:
   - darwin
   - windows
   - freebsd
-  - netbsd
-  - openbsd
-  - dragonfly
   goarch:
   - amd64
   - "386"
@@ -20,10 +17,6 @@ builds:
   - arm64
   goarm:
   - "6"
-  ignore:
-  - goos: openbsd
-    goarch: arm
-    goarm: 6
   main: ./cli/reldemo/
   ldflags: -s -w -X github.com/spiegel-im-spiegel/reldemo/cli/reldemo/facade.Version={{ .Version }}
   binary: reldemo
@@ -45,6 +38,15 @@ archive:
   files:
   - LICENSE*
   - README*
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - docs
+	  - typo
+      - Merge pull request
+      - Merge branch
 
 snapshot:
   name_template: SNAPSHOT-{{ .Commit }}
