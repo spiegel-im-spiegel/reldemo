@@ -14,7 +14,7 @@ builds:
   - "386"
   - arm
   - arm64
-  goarm: 6
+  goarm: "6"
   main: ./cli/reldemo/
   ldflags: -s -w -X github.com/spiegel-im-spiegel/reldemo/cli/reldemo/facade.Version={{ .Version }}
   binary: reldemo
